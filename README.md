@@ -1,6 +1,6 @@
 # Mithril-Portal
 
-Mithril component for rendering components at different mount points
+Mithril component for rendering children to document.body
 
 ## Why
 
@@ -13,5 +13,15 @@ npm install --save mithril-portal
 ```
 
 ## Usage
+```
+import m from 'mithril';
+import Portal from 'mithril-portal';
 
-## Documentation
+const Page = {
+	view() {
+		return m('', [
+			m(Portal, m('h1', 'Children'))
+		])
+	}
+}
+```
