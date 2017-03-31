@@ -18,10 +18,10 @@ import m from 'mithril';
 import Portal from 'mithril-portal';
 
 const Page = {
-	view() {
-		return m('', [
-			m(Portal, m('h1', 'Children'))
-		])
-	}
+  view() {
+    return m('', [
+      m(Portal, m('h1', 'Children'))
+    ])
+  }
 }
 ```
