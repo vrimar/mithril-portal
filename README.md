@@ -13,7 +13,7 @@ npm install --save mithril-portal
 ```
 
 ## Usage
-```
+```javascript
 import m from 'mithril';
 import Portal from 'mithril-portal';
 
