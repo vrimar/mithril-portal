@@ -1,14 +1,13 @@
 {
   "name": "mithril-portal",
-  "version": "0.0.1",
-  "description": "Mithril component for rendering components at different mount points",
+  "version": "1.0.0",
+  "description": "Mithril component for rendering children to document.body",
   "main": "src/index.js",
   "scripts": {
     "dev": "mocha --compilers js:babel-core/register --watch -r jsdom-global/register",
     "build": "webpack",
     "test": "mocha --compilers js:babel-core/register -r jsdom-global/register",
-    "clean": "rm -rf lib && rm -rf dist",
-    "prepublish": "npm run clean && npm run build"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
