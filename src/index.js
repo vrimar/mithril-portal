@@ -4,7 +4,7 @@ const Portal = {
   rootElement: null,
   content: null,
 
-  oninit(vnode) {
+  oncreate(vnode) {
     let rootElement = document.createElement('div');
     document.body.appendChild(rootElement);
     this.rootElement = rootElement;
@@ -24,7 +24,7 @@ const Portal = {
   },
 
   view(vnode) {
-    return null;
+    return m.fragment({}, []);
   }
 }
 
