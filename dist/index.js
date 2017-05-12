@@ -16,9 +16,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -81,48 +81,37 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _mithril = __webpack_require__(1);
-
-var _mithril2 = _interopRequireDefault(_mithril);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+Object.defineProperty(exports, "__esModule", { value: true });var _mithril = __webpack_require__(1);var _mithril2 = _interopRequireDefault(_mithril);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var Portal = {
-	rootElement: null,
-	content: null,
+  rootElement: null,
+  content: null,
 
-	oninit: function oninit(vnode) {
-		var rootElement = document.createElement('div');
-		document.body.appendChild(rootElement);
-		this.rootElement = rootElement;
-		this.content = { view: function view() {
-				return vnode.children;
-			} };
-		_mithril2.default.mount(this.rootElement, this.content);
-	},
-	onbeforeupdate: function onbeforeupdate(vnode) {
-		this.content.view = function () {
-			return vnode.children;
-		};
-	},
-	onremove: function onremove(vnode) {
-		if (document.body.contains(this.rootElement)) {
-			_mithril2.default.mount(this.rootElement, null);
-			document.body.removeChild(this.rootElement);
-		}
-	},
-	view: function view(vnode) {
-		return null;
-	}
-};
+  oncreate: function oncreate(vnode) {
+    var rootElement = document.createElement('div');
+    document.body.appendChild(rootElement);
+    this.rootElement = rootElement;
+    this.content = { view: function view() {return vnode.children;} };
+    _mithril2.default.mount(this.rootElement, this.content);
+  },
 
-exports.default = Portal;
+  onbeforeupdate: function onbeforeupdate(vnode) {
+    this.content.view = function () {return vnode.children;};
+  },
+
+  onremove: function onremove(vnode) {
+    if (document.body.contains(this.rootElement)) {
+      _mithril2.default.mount(this.rootElement, null);
+      document.body.removeChild(this.rootElement);
+    }
+  },
+
+  view: function view(vnode) {
+    return _mithril2.default.fragment({}, []);
+  } };exports.default =
+
+
+Portal;
 
 /***/ }),
 /* 1 */
