@@ -40,6 +40,7 @@ describe('mithril-portal', () => {
 
   it('Should remove portal div from body on unmount', () => {
     portal = m(Portal, m('h1', 'Children'));
+    m.mount(document.body, root);
     m.mount(document.body, null);
     assert.equal(document.body.childNodes.length, 0);
   });
