@@ -1,7 +1,7 @@
 {
   "name": "mithril-portal",
   "version": "1.0.3",
-  "description": "Mithril component for rendering children to document.body",
+  "description": "Mithril component for rendering inline children to document.body",
   "main": "src/index.js",
   "scripts": {
     "dev": "mocha --compilers js:babel-core/register --watch -r jsdom-global/register",
