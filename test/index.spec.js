@@ -32,7 +32,6 @@ describe('mithril-portal', () => {
     m.redraw();
 
     setTimeout(() => {
-      const a = document.body.lastChild.textContent;
       assert.equal(document.body.lastChild.textContent, 'true');
       done();
     }, 20);
