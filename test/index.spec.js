@@ -1,5 +1,4 @@
 import m from 'mithril';
-import mq from 'mithril-query';
 import assert from 'assert';
 import Portal from '../src/';
 
@@ -16,31 +15,34 @@ describe('mithril-portal', () => {
   });
 
   it('Should render children', () => {
-    portal = m(Portal, m('h1', 'Children'));
+    portal = m(Portal, m('.testing-content'));
     m.mount(document.body, root);
-    assert(document.body.lastChild.querySelector('h1'));
+    assert(document.body.querySelector('.testing-content'));
   });
 
   it('Should update children on redraw', (done) => {
     const container = {
       updated: false,
-      view: ({ state }) => m(Portal, state.updated ? 'true' : 'false')
+      view(vnode) {  return m(Portal, m(vnode.state.updated ? '.true' : '.false')) }
     }
 
     m.mount(document.body, container);
+    assert(document.body.querySelector('.false'));
+    
     container.updated = true;
     m.redraw();
 
     setTimeout(() => {
-      assert.equal(document.body.lastChild.textContent, 'true');
+      assert(document.body.querySelector('.true'));
       done();
-    }, 20);
+    }, 65);
   });
 
   it('Should remove portal div from body on unmount', () => {
-    portal = m(Portal, m('h1', 'Children'));
+    portal = m(Portal, m('.testing-content'));
     m.mount(document.body, root);
+    assert(document.body.querySelector('.testing-content'));
     m.mount(document.body, null);
-    assert.equal(document.body.childNodes.length, 0);
+    assert(!document.body.querySelector('.testing-content'));
   });
 });
