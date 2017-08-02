@@ -7,7 +7,7 @@ module.exports = {
 	],
 	output: {
 		filename: 'index.js',
-		library: 'mithril-portal',
+		library: 'MithrilPortal',
 		libraryTarget: 'umd',
 		path: path.resolve(__dirname, './dist/')
 	},
