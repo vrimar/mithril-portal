@@ -16,16 +16,16 @@ const Portal = {
     this.content.view = () => vnode.children;
   },
 
-  onremove(vnode) {
+  onremove() {
     if (document.body.contains(this.rootElement)) {
       m.mount(this.rootElement, null);
       document.body.removeChild(this.rootElement);
     }
   },
 
-  view(vnode) {
+  view() {
     return m.fragment({}, []);
   }
-}
+};
 
 export default Portal;
