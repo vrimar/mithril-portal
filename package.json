@@ -28,7 +28,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "eslint": "^4.7.2",
@@ -39,6 +39,6 @@
     "webpack": "^3.6.0"
   },
   "dependencies": {
-    "mithril": "^1.1.3"
+    "mithril": "^1.1.4"
   }
 }
