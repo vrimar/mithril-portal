@@ -1,4 +1,5 @@
 import m from 'mithril';
+import o from 'ospec';
 import assert from 'assert';
 import Portal from '../src/';
 
@@ -29,6 +30,16 @@ describe('mithril-portal', () => {
     }, 65);
   });
 
+  it('Should call onContentMount on mount', () => {
+    const spy = o.spy();
+
+    const container = {
+      view() { return m(Portal, { onContentMount: () => spy() }, m('.testing-content')); }
+    };
+    m.mount(document.body, container);
+    assert.equal(spy.callCount, 1);
+  });
+
   it('Should remove portal div from body on unmount', () => {
     const container = {
       view() { return m(Portal, m('.testing-content')); }
@@ -38,4 +49,5 @@ describe('mithril-portal', () => {
     m.mount(document.body, null);
     assert(!document.body.querySelector('.testing-content'));
   });
+
 });

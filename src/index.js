@@ -10,6 +10,10 @@ const Portal = {
     this.rootElement = rootElement;
     this.content = { view: () => vnode.children };
     m.mount(this.rootElement, this.content);
+
+    if (typeof vnode.attrs.onContentMount === 'function') {
+      vnode.attrs.onContentMount(rootElement);
+    }
   },
 
   onbeforeupdate(vnode) {
