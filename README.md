@@ -25,3 +25,9 @@ const Page = {
   }
 }
 ```
+
+## API
+
+| Attribute                    	| Description                                                                               	|
+|-----------------------------	|-------------------------------------------------------------------------------------------	|
+| onContentMount(rootElement) 	| Callback invoked when the portal has mounted. Returns the HTML element it was mounted to. 	|
