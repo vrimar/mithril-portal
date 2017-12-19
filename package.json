@@ -1,6 +1,6 @@
 {
   "name": "mithril-portal",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Mithril component for rendering inline children to document.body",
   "main": "src/index.js",
   "scripts": {
