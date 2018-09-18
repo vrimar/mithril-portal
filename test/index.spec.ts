@@ -1,6 +1,6 @@
 import m from 'mithril';
 import assert from 'assert';
-import Portal from '../src/';
+import Portal from '../src';
 
 describe('mithril-portal', () => {
   it('Should render children', () => {
@@ -14,7 +14,7 @@ describe('mithril-portal', () => {
   it('Should update children on redraw', (done) => {
     const container = {
       updated: false,
-      view(vnode) { return m(Portal, m(vnode.state.updated ? '.true' : '.false')); }
+      view(vnode: any) { return m(Portal, m(vnode.state.updated ? '.true' : '.false')); }
     };
 
     m.mount(document.body, container);
@@ -33,8 +33,9 @@ describe('mithril-portal', () => {
     let count = 0;
 
     const container = {
-      view() { return m(Portal, { onContentMount: () => count++ }, m('.testing-content')); }
+      view() { return m(Portal, { onContentMount: () => count++ }, m('')); }
     };
+
     m.mount(document.body, container);
     assert.equal(count, 1);
   });
@@ -48,5 +49,4 @@ describe('mithril-portal', () => {
     m.mount(document.body, null);
     assert(!document.body.querySelector('.testing-content'));
   });
-
 });
