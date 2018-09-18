@@ -1,6 +1,6 @@
 # Mithril-Portal
 
-Mithril component for rendering inline children to document.body
+Mithril component for rendering children outside the DOM hierarchy of the parent component.
 
 ## Why
 
@@ -30,4 +30,5 @@ const Page = {
 
 | Attribute                    	| Description                                                                               	|
 |-----------------------------	|-------------------------------------------------------------------------------------------	|
-| onContentMount(rootElement) 	| Callback invoked when the portal has mounted. Returns the HTML element it was mounted to. 	|
+| onContentMount(rootElement: HTMLElement) => void 	| Callback invoked when the portal has mounted. 	|
+| container: HTMLElement 	| Optional element to mount to (default is `document.body`) 	|
