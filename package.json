@@ -11,8 +11,8 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build": "npm run test && npm run lint && npm run build:cjs &&  npm run build:esm",
     "watch": "tsc --w",
-    "test": "mocha --require ts-node/register -r jsdom-global/register ./test/**/*.spec.ts",
-    "test:watch": "mocha --require ts-node/register --watch -r jsdom-global/register ./test/**/*.spec.ts",
+    "test": "mocha",
+    "test:watch": "mocha --watch",
     "version": "npm run build && git add *",
     "postversion": "git push && git push --tags && npm publish"
   },
