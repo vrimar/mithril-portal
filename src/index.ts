@@ -12,7 +12,7 @@ export default class Portal implements m.ClassComponent<IPortalAttrs> {
   private rootElement: HTMLElement;
   private content: m.Component<any, any>;
 
-  public oncreate({ attrs, children }: m.CVnode<IPortalAttrs>) {
+  public oncreate({ attrs, children }: m.VnodeDOM<IPortalAttrs>) {
     const rootElement = document.createElement('div');
     const container = attrs.container || document.body;
     container.appendChild(rootElement);
@@ -26,12 +26,12 @@ export default class Portal implements m.ClassComponent<IPortalAttrs> {
     }
   }
 
-  public onbeforeupdate({ children }: m.CVnode<IPortalAttrs>) {
+  public onbeforeupdate({ children }: m.Vnode<IPortalAttrs>) {
     if (!this.content) return false;
     this.content.view = () => children;
   }
 
-  public onremove({ attrs }: m.CVnode<IPortalAttrs>) {
+  public onremove({ attrs }: m.VnodeDOM<IPortalAttrs>) {
     const container = attrs.container || document.body;
 
     if (container.contains(this.rootElement)) {
