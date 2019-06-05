@@ -1,6 +1,6 @@
 {
   "name": "mithril-portal",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Mithril component for rendering children outside the DOM hierarchy of the parent component.",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
