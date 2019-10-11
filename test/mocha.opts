@@ -1,4 +1,6 @@
+--inline-diffs true
+--colors
 --require ts-node/register
---require jsdom-global/register
---watch-extensions ts
-test/**/*spec.ts
+--require ./test/setup.js
+--extension ts
+./test/**/*.spec.ts

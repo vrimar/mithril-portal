@@ -11,7 +11,7 @@ describe('mithril-portal', () => {
     assert(document.body.querySelector('.testing-content'));
   });
 
-  it('Should update children on redraw', (done) => {
+  it('Should update children on redraw', () => {
     const container = {
       updated: false,
       view(vnode: any) { return m(Portal, m(vnode.state.updated ? '.true' : '.false')); }
@@ -21,12 +21,9 @@ describe('mithril-portal', () => {
     assert(document.body.querySelector('.false'));
 
     container.updated = true;
-    m.redraw();
+    m.redraw.sync();
 
-    setTimeout(() => {
-      assert(document.body.querySelector('.true'));
-      done();
-    }, 65);
+    assert(document.body.querySelector('.true'));
   });
 
   it('Should call onContentMount on mount', () => {
