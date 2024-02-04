@@ -6,6 +6,9 @@ export interface IPortalAttrs {
 
   /** Optional HTML element to mount to */
   container?: HTMLElement;
+
+  /** css className for the inserted element **/
+  className?: string;
 }
 
 export default class Portal implements m.ClassComponent<IPortalAttrs> {
@@ -14,6 +17,10 @@ export default class Portal implements m.ClassComponent<IPortalAttrs> {
 
   public oncreate({ attrs, children }: m.VnodeDOM<IPortalAttrs>) {
     const rootElement = document.createElement('div');
+    if (typeof className === "string") {
+      rootElement.className = className;
+    }
+    
     const container = attrs.container || document.body;
     container.appendChild(rootElement);
     this.rootElement = rootElement;
